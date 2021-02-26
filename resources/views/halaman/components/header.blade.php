@@ -5,18 +5,14 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="#" class="logo">
-                        <img src="{{asset('assets/frontend/images/logo.png')}}" alt="Softy Pinko" />
+                        <img src="{{ asset('assets/frontend/images/logo.png') }}" alt="Softy Pinko" />
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="#welcome" class="active">Home</a></li>
-                        <li><a href="#features">About</a></li>
-                        <li><a href="#work-process">Work Process</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#pricing-plans">Pricing Tables</a></li>
-                        <li><a href="#blog">Blog Entries</a></li>
-                        <li><a href="#contact-us">Contact Us</a></li>
+                        <li><a href="#welcome" class="active">Halaman</a></li>
+                        <li><a href="#features">Data</a></li>
+                        <li><a href="#work-process">Tentang</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

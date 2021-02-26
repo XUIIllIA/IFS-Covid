@@ -6,11 +6,9 @@
         <div class="container">
             <div class="row">
                 <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
-                    <h1>We provide the best <strong>strategy</strong><br>to grow up your <strong>business</strong>
+                    <h1>Selamat Datang di <strong>IFS Covid</strong><br>
                     </h1>
-                    <p>Softy Pinko is a professional Bootstrap 4.0 theme designed by Template Mo
-                        for your company at absolutely free of charge</p>
-                    <a href="#features" class="main-button-slider">Discover More</a>
+                    <p>Di website IFS Covid ini anda dapat melihat data covid antar daerah Indonesia hingga dunia</p>
                 </div>
             </div>
         </div>
@@ -26,56 +24,46 @@
             <div class="col-lg-12">
                 <div class="row">
                     <!-- ***** Features Small Item Start ***** -->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12"
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"
                         data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
                         <div class="features-small-item">
                             <div class="icon">
                                 <i><img src="{{ asset('assets/frontend/images/featured-item-01.png') }}" alt=""></i>
                             </div>
-                            <h5 class="features-title">Total Positif Di dunia</h5>
-                            <h3><?php echo $dupos['value']; ?></h3>
+                            <h5 class="features-title">Total Positif di Indonesia</h5>
+                            <h3>{{ $positif }}</h3>
                         </div>
                     </div>
                     <!-- ***** Features Small Item End ***** -->
 
                     <!-- ***** Features Small Item Start ***** -->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12"
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12"
                         data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
                         <div class="features-small-item">
                             <div class="icon">
                                 <i><img src="{{ asset('assets/frontend/images/featured-item-02.png') }}" alt=""></i>
                             </div>
-                            <h5 class="features-title">Total Sembuh Di dunia</h5>
-                            <h3><?php echo $dusem['value']; ?></h3>
+                            <h5 class="features-title">Total Sembuh di Indonesia</h5>
+                            <h3>{{ $sembuh }}</h3>
                         </div>
                     </div>
                     <!-- ***** Features Small Item End ***** -->
 
                     <!-- ***** Features Small Item Start ***** -->
-                    <div class="col-lg-3 col-md-8 col-sm-8 col-12"
+                    <div class="col-lg-4 col-md-8 col-sm-8 col-12"
                         data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
                         <div class="features-small-item">
                             <div class="icon">
                                 <i><img src="{{ asset('assets/frontend/images/featured-item-03.png') }}" alt=""></i>
                             </div>
-                            <h5 class="features-title">Total Meninggal Di dunia</h5>
-                            <h3><?php echo $dumen['value']; ?></h3>
+                            <h5 class="features-title">Total Meninggal di Indonesia</h5>
+                            <h3>{{ $meninggal }}</h3>
                         </div>
                     </div>
                     <!-- ***** Features Small Item End ***** -->
 
                     <!-- ***** Features Small Item Start ***** -->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12"
-                        data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
-                        <div class="features-small-item">
-                            <div class="icon">
-                                <i><img src="{{ asset('assets/frontend/images/featured-item-04.png') }}" alt=""></i>
-                            </div>
-                            <h5 class="features-title">INDONESIA</h5>
-                            <h5 class="features-title"><b>{{ $positif }}</b> positif, <b>{{ $sembuh }}</b>
-                                sembuh, <b>{{ $meninggal }}</b> meninggal</h5>
-                        </div>
-                    </div>
+
                     <!-- ***** Features Small Item End ***** -->
                     <div class="col text-center">
                         <h6>
@@ -91,8 +79,9 @@
 <!-- ***** Features Small End ***** -->
 
 <!-- ======== Table Section ======== -->
-<section id="provinsi" class="provinsi section padding-top-70 padding-bottom-0">
-    <div class="container">
+{{-- kalau erros ini berarti id="provinsi " --}}
+<section id="features" class="provinsi section padding-top-70 padding-bottom-0">
+    <div class="container" id="features">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
@@ -149,60 +138,62 @@
             </div>
         </div>
     </div>
-</section>
-<!-- ======== End Table Section ======== -->
-
-<!-- ======== Table Section Global ======= -->
-<section id="global" class="global provinsi section padding-top-70 padding-bottom-0">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header"><b>DATA NEGARA</b></div>
-                    <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">
-                                        <center>No</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>Negara</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>Jumlah Positif</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>Jumlah Sembuh</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>Jumlah Meninggal</center>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @foreach ($dunia as $data)
+    {{-- <section id="global" class="global provinsi section padding-top-70 padding-bottom-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header"><b>DATA NEGARA</b></div>
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
                                     <tr>
-                                        <td> <?php echo $no++; ?></td>
-                                        <td> <?php echo $data['attributes']['Country_Region']; ?></td>
-                                        <td> <?php echo number_format($data['attributes']['Confirmed']);
-                                            ?></td>
-                                        <td><?php echo number_format($data['attributes']['Recovered']);
-                                            ?></td>
-                                        <td><?php echo number_format($data['attributes']['Deaths']); ?></td>
+                                        <th scope="col">
+                                            <center>No</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Negara</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Positif</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Sembuh</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Meninggal</center>
+                                        </th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($dunia as $data)
+                                        <tr>
+                                            <td> <?php echo $no++; ?></td>
+                                            <td> <?php echo $data['attributes']['Country_Region']; ?></td>
+                                            <td> <?php echo
+                                                number_format($data['attributes']['Confirmed']); ?></td>
+                                            <td><?php echo
+                                                number_format($data['attributes']['Recovered']); ?></td>
+                                            <td><?php echo number_format($data['attributes']['Deaths']);
+                                                ?></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section> --}}
 </section>
+<!-- ======== End Table Section ======== -->
+
+<!-- ======== Table Section Global ======= -->
+
 <!-- ======== End Table Section Global ======= -->
 
 @section('js')

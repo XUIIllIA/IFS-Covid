@@ -21,69 +21,24 @@ use App\Http\Controllers\KasusController;
 */
 
 Route::get('/', function () {
-    return view('frontend.index');
+    return view('halaman.index');
 });
 
 // Route FrontEnd
-use App\Http\Controllers\DashboardController;
-Route::resource('/', DashboardController::class);
+use App\Http\Controllers\HalamanController;
+Route::resource('/', HalamanController::class);
 
 Auth::routes();
-Route::group(['prefix' => 'admin', 'middleware'=>['auth']], function (){
-	Route::get('/', function(){
-		return view('admin.index');
-	});
+Route::group(['prefix', 'middleware'=>['auth']], function (){
 
 	Route::resource('/provinsi', ProvinsiController::class);
 	Route::resource('/kota', KotaController::class);
 	Route::resource('/kelurahan', KelurahanController::class);
 	Route::resource('/kecamatan', KecamatanController::class);
-	
-	Route::resource('/province', ProvinceController::class);
-
-	Route::resource('/city', CityController::class);
-
-	Route::resource('/district', DistrictController::class);
-
-	Route::resource('/subdistrict', SubdistrictController::class);
-
-
-	Route::resource('/rw', RwController::class);
-
-    Route::resource('/local', TrackController::class);
-    
-    
-    Route::resource('provinsi',ProvinsiController::class);
-    
-    
-    Route::resource('kota',KotaController::class);
-    
-    
-    Route::resource('kecamatan',KecamatanController::class);
-    
-    
-    Route::resource('kelurahan',KelurahanController::class);
-    
-    
     Route::resource('rw',RwController::class);
-    
-    
-    Route::resource('tracking',TrackingController::class);
-    
-    
-    Route::resource('negara',NegaraController::class);
-    
-   
-    Route::resource('kasus',KasusController::class);    
-
-
-	Route::get('/global', function(){
-		return view('admin.globalCase.index');
-	});
-
-	
+    Route::resource('virus',KasusController::class);    
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/virus', [App\Http\Controllers\KasusController::class, 'index'])->name('virus');
 
 
 // Route::get('test', function() {

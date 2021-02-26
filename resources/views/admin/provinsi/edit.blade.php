@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('judul', 'Provinsi')
 @section('provinsi', 'active')
 @section('content')
 <div class="container">
@@ -22,10 +23,11 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn-block btn-info">Submit</button>
+                        <br><button type="submit" class="btn-block btn-info">simpan</button>
                     </div>
-                        </form>
-                    </div>
+                </form>
+                <a href="{{ url('/provinsi') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
+                </div>
                 </div>
             </div>
         </div>

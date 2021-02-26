@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('kota', 'active')
+@section('judul', 'Kota')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -26,10 +27,10 @@
                                 <input type="text" class="form-control"  name="nama" value="{{@old('nama',$kota->nama_kota)}}" autofocus>
                             </div>
                             <div class="form-group">
-                                <br><button type="submit" class="btn-block btn-info">Kirim</button>
+                                <br><button type="submit" class="btn-block btn-info">simpan</button>
                             </div>
                         </form>
-                        <a href="{{url('admin/kota')}}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
+                        <a href="{{ url('/kota') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                     </div>
                 </div>
             </div>

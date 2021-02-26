@@ -46,15 +46,15 @@ class KelurahanController extends Controller
     {
          //validasi   
         $request->validate([
-            'nama' => 'required',
+            'nama_kelurahan' => 'required|unique:kelurahans',
             'id_kecamatan' => 'required',
           ], [
             'id_kecamatan.required' => 'Kecamatan harus di pilih ',
-            'nama.required' => 'Nama Kelurahan harus di isi ',
+            'nama_kelurahan.unique' => 'Nama kelurahan sudah ada ',
           ]);
      
         $kelurahan= new Kelurahan();
-        $kelurahan->nama_kelurahan = $request->nama;
+        $kelurahan->nama_kelurahan = $request->nama_kelurahan;
         $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->save();
         return redirect()->route('kelurahan.index')

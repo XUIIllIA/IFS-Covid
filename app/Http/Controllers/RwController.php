@@ -45,15 +45,16 @@ class RwController extends Controller
     {
           // validasi
           $request->validate([
-            'nama' => 'required',
+            'nama_rw' => 'required|unique:rws',
             'id_kelurahan' => 'required',
           ], [
             'id_kelurahan.required' => 'Kelurahan harus di pilih ',
-            'nama.required' => 'Nama rw harus di isi ',
+            'nama_rw.required' => 'No rw harus di isi ',
+            'nama_rw.unique' => 'No rw sudah ada ',
           ]);
 
         $rw= new Rw();
-        $rw->nama_rw= $request->nama;
+        $rw->nama_rw= $request->nama_rw;
         $rw->id_kelurahan = $request->id_kelurahan;
         $rw->save();
         return redirect()->route('rw.index')
@@ -96,7 +97,7 @@ class RwController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|max:3',
+            'nama' => 'required',
             'id_kelurahan' => 'required',
           ], [
             'id_kelurahan.required' => 'Kelurahan harus di pilih ',

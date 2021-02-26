@@ -46,15 +46,16 @@ class KecamatanController extends Controller
     {
         // validasi
         $request->validate([
-            'nama' => 'required|max:10|min:3',
+            'nama_kecamatan' => 'required|unique:kecamatans',
             'id_kota' => 'required',
           ], [
             'id_kota.required' => 'Kota harus di pilih ',
-            'nama.required' => 'Nama Kecamatan harus di isi ',
+            'nama_kecamatan.required' => 'Nama kecamatan harus di isi ',
+            'nama_kecamatan.unique' => 'Nama kecamatan sudah ada ',
           ]);
 
         $kecamatan= new Kecamatan();
-        $kecamatan->nama_kecamatan = $request->nama;
+        $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->id_kota = $request->id_kota;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')

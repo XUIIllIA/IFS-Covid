@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('judul', 'Kota')
 @section('kota', 'active')
 @section('css')
 
@@ -31,17 +32,16 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Kota @error('nama') | <i style="color: red"> {{ $message }}
+                                <label for="">Kota @error('nama_kota') | <i style="color: red"> {{ $message }}
                                     </i>@enderror</label>
-                                <input type="text" class="form-control" value="{{ @old('nama') }}" name="nama"
+                                <input type="text" class="form-control" value="{{ @old('nama_kota') }}" name="nama_kota"
                                     placeholder="Masukan Nama Kota">
                             </div>
                             <div class="form-group">
-                                <br><button type="submit" class="btn-block btn-info">Kirim</button>
+                                <br><button type="submit" class="btn-block btn-info">simpan</button>
                             </div>
                         </form>
-                        <a href="{{ url('admin/kota') }}"><button type="submit"
-                                class="btn-block btn-dark">kembali</button></a>
+                        <a href="{{ url('/kota') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                     </div>
                 </div>
             </div>

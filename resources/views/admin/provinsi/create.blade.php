@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('judul', 'Provinsi')
 @section('provinsi', 'active')
 @section('content')
 <div class="container">
@@ -11,18 +12,20 @@
                 <form  action="{{route('provinsi.store')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="">Provinsi @error('nama')
+                        <label for="">Provinsi @error('nama_provinsi')
                         | <i style="color: red"> {{ $message }} </i>
                         @enderror</label>
-                        <input type="text" name="nama" class="form-control " value="{{@old('nama')}}" 
+                        <input type="text" name="nama_provinsi" class="form-control " value="{{@old('nama_provinsi')}}" 
                         placeholder="Masukan Nama Provinsi" autofocus>
-                        @error('nama')
+                        @error('nama_provinsi')
                         <div class="invalid-feedback"></div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn-block btn-info">Kirim</button>
-                   
+                    <div class="form-group">
+                        <br><button type="submit" class="btn-block btn-info">simpan</button>
+                    </div>
                 </form>
+                <a href="{{ url('/provinsi') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                 </div>
                 </div>
             </div>

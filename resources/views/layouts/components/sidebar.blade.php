@@ -1,9 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" alt="AdminLTE Logo"
+        <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Alexander Pierce</span>
+        <span class="brand-text font-weight-light">IFS Covid</span>
     </a>
 
     <!-- Sidebar -->
@@ -28,12 +28,12 @@
                     <a href="{{ url('/') }}" class="nav-link @yield('dashboard')">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Dashboard
+                            Halaman
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('admin/kasus') }}" class="nav-link  @yield('kasus')">
+                    <a href="{{ url('/virus') }}" class="nav-link  @yield('kasus')">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Data Virus
@@ -42,33 +42,33 @@
                 </li>
                 <li class="nav-header">DAERAH</li>
                 <li class="nav-item">
-                    <a href="{{ url('admin/provinsi') }}" class="nav-link  @yield('provinsi')">
+                    <a href="{{ url('/provinsi') }}" class="nav-link  @yield('provinsi')">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>Provinsi</p>
+                        <p> Data Provinsi</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('admin/kota') }}" class="nav-link @yield('kota')">
+                    <a href="{{ url('/kota') }}" class="nav-link @yield('kota')">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>Kota</p>
+                        <p>Data Kota</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('admin/kecamatan') }}" class="nav-link @yield('kecamatan')">
+                    <a href="{{ url('/kecamatan') }}" class="nav-link @yield('kecamatan')">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>Kecamatan</p>
+                        <p>Data Kecamatan</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('admin/kelurahan') }}" class="nav-link @yield('kelurahan')">
+                    <a href="{{ url('/kelurahan') }}" class="nav-link @yield('kelurahan')">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>Kelurahan</p>
+                        <p>Data Kelurahan</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('admin/rw') }}" class="nav-link @yield('rw')">
+                    <a href="{{ url('/rw') }}" class="nav-link @yield('rw')">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>Rw</p>
+                        <p>Data Rw</p>
                     </a>
                 </li>
             </ul>

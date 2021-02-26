@@ -9,7 +9,10 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>Softy Pinko - Bootstrap 4.0 Theme</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/dist/img/AdminLTELogo.png') }}">
+    <title>
+        IFS Covid
+    </title>
     <!--
     SOFTY PINKO
     https://templatemo.com/tm-535-softy-pinko
@@ -42,15 +45,15 @@
 
 
     <!-- ***** Header Area Start ***** -->
-    @include('frontend.components.header')
+    @include('halaman.components.header')
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Welcome Area Start dan Features Small Start ***** -->
-    @include('frontend.components.home')
+    @include('halaman.components.home')
     <!-- ***** Welcome Area Start dan Features Small Start End ***** -->
 
     <!-- ***** Features Big Item Start ***** -->
-    <section class="section padding-top-70 padding-bottom-0" id="features">
+    <section class="section padding-top-70 padding-bottom-0" id="work-process">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-12 col-sm-12 align-self-center"
@@ -78,32 +81,33 @@
                 </div>
             </div>
         </div>
+        <section class="section padding-bottom-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-bottom-fix">
+                        <div class="left-heading">
+                            <h2 class="section-title">Bagaimana virus covid itu menular ?</h2>
+                        </div>
+                        <div class="left-text">
+                            <p> bahwa penyebaran virus covid bisa dari satu manusia melalui percikan cairan yang berasal
+                                dari saluran pernapasan
+                                dan mulut, seperti buliran yang keluar saat batuk atau bersin.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big"
+                        data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="{{ asset('assets/frontend/images/right-image.png') }}"
+                            class="rounded img-fluid d-block mx-auto" alt="App">
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
     <!-- ***** Features Big Item End ***** -->
 
     <!-- ***** Features Big Item Start ***** -->
-    <section class="section padding-bottom-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-bottom-fix">
-                    <div class="left-heading">
-                        <h2 class="section-title">Bagaimana virus covid itu menular ?</h2>
-                    </div>
-                    <div class="left-text">
-                        <p> bahwa penyebaran virus covid bisa dari satu manusia melalui percikan cairan yang berasal
-                            dari saluran pernapasan
-                            dan mulut, seperti buliran yang keluar saat batuk atau bersin.</p>
-                    </div>
-                </div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big"
-                    data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                    <img src="{{ asset('assets/frontend/images/right-image.png') }}"
-                        class="rounded img-fluid d-block mx-auto" alt="App">
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- ***** Features Big Item End ***** -->
 
     {{-- <!-- ***** Home Parallax Start ***** -->
@@ -549,19 +553,8 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <ul class="social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-12">
-                    <p class="copyright">Copyright &copy; 2020 Softy Pinko Company - Design: TemplateMo</p>
+                    <p class="copyright">TERIMAKASIH TELAH BERKUNJUNG DI &copy; IFS COVID</p>
                 </div>
             </div>
         </div>

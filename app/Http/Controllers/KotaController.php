@@ -46,15 +46,16 @@ class KotaController extends Controller
     {
         //validasi
         $request->validate([
-            'nama' => 'required|max:30|min:3|alpha',
+            'nama_kota' => 'required|unique:kotas',
             'id_provinsi' => 'required',
           ], [
             'id_provinsi.required' => 'Provinsi harus di pilih ',
-            'nama.required' => 'Nama kota harus di isi ',
+            'nama_kota.required' => 'Nama kota harus di isi ',
+            'nama_kota.unique' => 'Nama kota sudah ada ',
           ]);
 
         $kota= new Kota();
-        $kota->nama_kota = $request->nama;
+        $kota->nama_kota = $request->nama_kota;
         $kota->id_provinsi = $request->id_provinsi;
         $kota->save();
         return redirect()->route('kota.index')

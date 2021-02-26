@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('rw', 'active')
+@section('judul', 'RW')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,23 +15,24 @@
                         <label for="">Kelurahan @error('id_kelurahan')
                             | <i style="color: red"> {{ $message }} </i>
                         @enderror</label>
-                        <select name="id_kelurahan"  class="form-control @error('id_kelurahan') is-invalid @enderror" id="id_kelurahan">
+                        <select name="id_kelurahan"  class="form-control @error('id_kelurahan') is-invalid @enderror" id="id_kelurahan" ">
                             <option value=""></option>
                             @foreach($kelurahan as $data)
-                                <option value="{{$data->id}}">{{$data->nama_kelurahan}}</option>
+                                <option value="{{$data->id}}" {{ old('id_kelurahan') == $data->id ? 'selected' : null }} >{{$data->nama_kelurahan}}</option>
                             @endforeach
                         </select>
                     </div>
                       <div class="form-group">
-                        <label for="">Rw @error('nama')
+                        <label for="">Rw @error('nama_rw')
                             | <i style="color: red"> {{ $message }} </i>
                         @enderror</label>
-                        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama">
+                        <input type="text" class="form-control @error('nama_rw') is-invalid @enderror" name="nama_rw" value="{{@old('nama_rw')}}">
                     </div>
                     <div class="form-group">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                        <br><button type="submit" class="btn-block btn-info">simpan</button>
                     </div>
                 </form>
+                <a href="{{ url('/rw') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                 </div>
                 </div>
             </div>

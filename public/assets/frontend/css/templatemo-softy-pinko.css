@@ -521,7 +521,7 @@ header
 }
 
 .header-area .main-nav .nav li a:hover {
-    color: #ff589e;
+    color: #8261ee;
 }
 
 .header-area .main-nav .menu-trigger {
@@ -633,7 +633,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-    color: #ff589e;
+    color: #8261ee;
 }
 
 @media (max-width: 1200px) {
@@ -862,7 +862,7 @@ features
 }
 
 .features-small-item:hover .icon {
-    background-color: #ff589e;
+    background-color: #8261ee;
 }
 
 .features-small-item .icon {
@@ -876,7 +876,7 @@ features
     margin: auto;
     position: relative;
     margin-bottom: 30px;
-    background: #8261ee;
+    background: #17a2b8;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;

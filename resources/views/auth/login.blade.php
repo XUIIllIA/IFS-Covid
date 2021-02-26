@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Data Covid | Masuk</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/dist/img/AdminLTELogo.png') }}">
+    <title>
+        IFS Covid | Masuk
+    </title>
 
     <link rel="shortcut icon" href="{{ asset('assets/relo/images/fav.jpg') }}">
     <link rel="stylesheet" href="{{ asset('assets/relo/css/bootstrap.min.css') }}">
@@ -22,7 +25,7 @@
                         <div class="col-lg-8 col-md-7 log-det">
 
                             <div class="small-logo">
-                                <i class="fab fa-asymmetrik"></i> Data Covid
+                                <i class="fab "></i>
                             </div>
                             <h2>Silahkan masuk</h2>
 

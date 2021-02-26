@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('kasus', 'active')
+@section('judul', 'Kasus')
 @section('css')
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
@@ -29,7 +30,7 @@
                 @endif
                 <div class="card">
                     <div class="card-header">{{ __('Data Tracking') }}
-                        <a href="{{ route('kasus.create') }}" class="float-right btn btn-success">Add Data</a>
+                        <a href="{{ route('virus.create') }}" class="float-right btn btn-success">Tambah Data</a>
                     </div>
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
@@ -68,7 +69,8 @@
                                         </th>
                                         <td>
                                             <center>
-                                                Provinsi : {{ $data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi }}
+                                                Provinsi :
+                                                {{ $data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi }}
                                                 Kota : {{ $data->rw->kelurahan->kecamatan->kota->nama_kota }}<br>
                                                 Kecamatan : {{ $data->rw->kelurahan->kecamatan->nama_kecamatan }}<br>
                                                 Kelurahan : {{ $data->rw->kelurahan->nama_kelurahan }}<br>
@@ -90,11 +92,11 @@
                                             <center>{{ $data->created_at }}</center>
                                         </td>
                                         <td>
-                                            <form action="{{ route('kasus.destroy', $data->id) }}" method="POST">
+                                            <form action="{{ route('virus.destroy', $data->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <center>
-                                                    <a href="{{ route('kasus.edit', $data->id) }}"
+                                                    <a href="{{ route('virus.edit', $data->id) }}"
                                                         class="btn btn-primary btn-sm"><i class="fa fa-edit"></a></i>
                                                     <button type="submit" class="btn btn-danger btn-sm"
                                                         onclick="return confirm('Yakin Hapus?')"><i class="fa fa-trash-alt">

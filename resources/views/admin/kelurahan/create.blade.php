@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('kelurahan', 'active')
+@section('judul', 'Kelurahan')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -22,17 +23,18 @@
                         </div>
                         <div class="form-group">
                             <div class="mb-12">
-                                <label for="">Kelurahan @error('nama')
+                                <label for="">Kelurahan @error('nama_kelurahan')
                                     | <i style="color: red"> {{ $message }} </i>
                                 @enderror</label>
-                                <input type="text" class="form-control @error('nama') is-invalid @enderror" value="{{@old('nama')}}" 
-                                placeholder="Masukan Nama Kelurahan" name="nama">
+                                <input type="text" class="form-control @error('nama_kelurahan') is-invalid @enderror" value="{{@old('nama_kelurahan')}}" 
+                                placeholder="Masukan Nama Kelurahan" name="nama_kelurahan">
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn-block btn-info">Submit</button>
+                            <br><button type="submit" class="btn-block btn-info">simpan</button>
                         </div>
                     </form>
+                    <a href="{{ url('/kelurahan') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                 </div>
             </div>
         </div>

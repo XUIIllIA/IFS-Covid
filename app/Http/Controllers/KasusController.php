@@ -29,7 +29,7 @@ class KasusController extends Controller
         $kasus->sembuh = $request->sembuh;
         $kasus->meninggal = $request->meninggal;
         $kasus->save();
-        return redirect()->route('kasus.index')
+        return redirect()->route('virus.index')
         ->with(['message'=>'Data Berhasil Dibuat']);
     }
 
@@ -56,7 +56,7 @@ class KasusController extends Controller
         $kasus->sembuh = $request->sembuh;
         $kasus->meninggal = $request->meninggal;
         $kasus->save();
-        return redirect()->route('kasus.index')
+        return redirect()->route('virus.index')
         ->with(['message'=>'Data Berhasil Diedit']);
     }
 
@@ -64,7 +64,7 @@ class KasusController extends Controller
     {
         $kasus = Kasus::findOrFail($id);
         $kasus->delete();
-        return redirect()->route('kasus.index')
+        return redirect()->route('virus.index')
         ->with(['message1'=>'Data Berhasil Dihapus']);
     }
 }

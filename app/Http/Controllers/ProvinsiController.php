@@ -47,13 +47,14 @@ class ProvinsiController extends Controller
     {
          // validasi
           $request->validate([
-            'nama' => 'required', 
+            'nama_provinsi' => 'required|unique:provinsis', 
           ], [
-            'nama.required' => 'Nama provinsi harus di isi ',
+            'nama_provinsi.required' => 'Nama provinsi harus di isi ',
+            'nama_provinsi.unique' => 'Nama provinsi sudah ada ',
           ]);
 
         $provinsi = new Provinsi();
-        $provinsi->nama_provinsi = $request->nama;
+        $provinsi->nama_provinsi = $request->nama_provinsi;
         $provinsi->save();
         return redirect()->route('provinsi.index')
                         ->with(['message'=>'Data Berhasil Dibuat']);
@@ -93,10 +94,9 @@ class ProvinsiController extends Controller
     public function update(Request $request, $id)
     {
       $request->validate([
-        'nama' => 'required|unique:users', 
+        'nama' => 'required|unique:provinsis', 
       ], [
         'nama.required' => 'Nama provinsi harus di isi ',
-        'nama.unique:users' => 'Nama provinsi sudah ada' 
       ]);
           
         $provinsi = Provinsi::findOrFail($id);

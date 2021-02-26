@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('judul', 'RW')
 @section('rw', 'active')
 @section('content')
 <div class="container">
@@ -32,10 +33,11 @@
                     </div>
                 </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn-block btn-info">Submit</button>
-                    </div>
-                        </form>
+                <div class="form-group">
+                    <br><button type="submit" class="btn-block btn-info">simpan</button>
+                </div>
+            </form>
+            <a href="{{ url('/kota') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                     </div>
                 </div>
             </div>

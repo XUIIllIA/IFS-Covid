@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('judul', 'Kasus')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -8,7 +9,7 @@
                         Data kasus
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('kasus.update', $kasus->id) }}" method="post">
+                        <form action="{{ route('virus.update', $kasus->id) }}" method="post">
                             @csrf @method('put')
                             @livewire('dropdowns',['selectedRw'=>$kasus->id_rw,'selectedKelurahan'=>$kasus->rw->id_kelurahan,
                             'selectedKecamatan'=>$kasus->rw->kelurahan->id_kecamatan,
@@ -30,10 +31,12 @@
                                     <input type="text" name="meninggal" class="form-control"
                                         value="{{ $kasus->meninggal }}" required>
                                 </div>
+                            </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <br><button type="submit" class="btn-block btn-info">simpan</button>
                                 </div>
                         </form>
+                            <a href="{{ url('/kasus') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                     </div>
                 </div>
             </div>

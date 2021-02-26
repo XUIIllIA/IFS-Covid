@@ -1,9 +1,10 @@
 @extends('layouts.master')
 @section('kelurahan', 'active')
+@section('judul', 'Kelurahan')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Data Kelurahan') }}</div>
                 <div class="card-body">
@@ -28,9 +29,10 @@
                             value="{{@old('nama',$kelurahan->nama_kelurahan)}}" autofocus>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn-block btn-info">Submit</button>
+                            <br><button type="submit" class="btn-block btn-info">simpan</button>
                         </div>
                     </form>
+                    <a href="{{ url('/kelurahan') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                 </div>
             </div>
         </div>

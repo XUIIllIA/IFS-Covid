@@ -12,7 +12,7 @@ use App\Http\Models\RW;
 use App\Http\Models\Kasus;
 use Illuminate\Support\Carbon;
 
-class DashboardController extends Controller
+class HalamanController extends Controller
 {
 
     
@@ -35,12 +35,12 @@ class DashboardController extends Controller
             'kasuses.sembuh','kasuses.meninggal')
             ->join('kasuses','rws.id','=','kasuses.id_rw')
             ->sum('kasuses.meninggal');
-        $posdu = file_get_contents('https://api.kawalcorona.com/positif');
-        $mendu = file_get_contents('https://api.kawalcorona.com/meninggal');
-        $semdu = file_get_contents('https://api.kawalcorona.com/sembuh');
-        $dupos = json_decode($posdu, TRUE);
-        $dumen = json_decode($mendu, TRUE);
-        $dusem = json_decode($semdu, TRUE);
+        // $posdu = file_get_contents('https://api.kawalcorona.com/positif');
+        // $mendu = file_get_contents('https://api.kawalcorona.com/meninggal');
+        // $semdu = file_get_contents('https://api.kawalcorona.com/sembuh');
+        // $dupos = json_decode($posdu, TRUE);
+        // $dumen = json_decode($mendu, TRUE);
+        // $dusem = json_decode($semdu, TRUE);
 
         // Date
         $tanggal = Carbon::now()->format('D d-M-Y');
@@ -60,75 +60,9 @@ class DashboardController extends Controller
                   ->get();
 
         // Table Global
-        $datadunia= file_get_contents("https://api.kawalcorona.com/");
-        $dunia = json_decode($datadunia, TRUE);
+        // $datadunia= file_get_contents("https://api.kawalcorona.com/");
+        // $dunia = json_decode($datadunia, TRUE);
             
-        return view('frontend.index',compact('positif','sembuh','meninggal','dumen','dusem','dupos', 'tanggal','tampil','dunia'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('halaman.index',compact('positif','sembuh','meninggal', 'tanggal','tampil'));
     }
 }

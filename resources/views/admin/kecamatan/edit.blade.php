@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('kecamatan', 'active')
+@section('judul', 'Kecamatan')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -30,9 +31,10 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn-block btn-info">Submit</button>
+                            <br><button type="submit" class="btn-block btn-info">simpan</button>
                         </div>
                     </form>
+                    <a href="{{ url('/kecamatan') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                 </div>
             </div>
         </div>
