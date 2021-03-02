@@ -1,12 +1,13 @@
 @extends('layouts.master')
-@section('judul', 'Kasus')
+@section('judul', 'Virus')
+@section('virus', 'active')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Data kasus
+                    Data Virus
                 </div>
                 <div class="card-body">
                     <form action="{{ route('virus.store') }}" method="post">
@@ -30,7 +31,7 @@
                             <br><button type="submit" class="btn-block btn-info">simpan</button>
                         </div>
                     </form>
-                    <a href="{{ url('/kasus') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
+                    <a href="{{ url('/virus') }}"><button type="submit" class="btn-block btn-dark">kembali</button></a>
                 </div>
             </div>
         </div>

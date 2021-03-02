@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKasusesTable extends Migration
+class CreateVirusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKasusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('kasuses', function (Blueprint $table) {
+        Schema::create('viruses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_rw')->constrained('rws')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('positif');
@@ -30,6 +30,6 @@ class CreateKasusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kasuses');
+        Schema::dropIfExists('viruses');
     }
 }

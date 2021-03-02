@@ -94,13 +94,13 @@ class ProvinsiController extends Controller
     public function update(Request $request, $id)
     {
       $request->validate([
-        'nama' => 'required|unique:provinsis', 
+        'nama_provinsi' => 'required', 
       ], [
-        'nama.required' => 'Nama provinsi harus di isi ',
+        'nama_provinsi.required' => 'Nama provinsi harus di isi ',
       ]);
           
         $provinsi = Provinsi::findOrFail($id);
-        $provinsi->nama_provinsi = $request->nama;
+        $provinsi->nama_provinsi = $request->nama_provinsi;
         $provinsi->save();
         return redirect()->route('provinsi.index')
                         ->with(['message'=>'Data Berhasil Diedit']);

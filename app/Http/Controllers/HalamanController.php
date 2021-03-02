@@ -9,7 +9,7 @@ use App\Http\Models\Kota;
 use App\Http\Models\Kecamatan;
 use App\Http\Models\Kelurahan;
 use App\Http\Models\RW;
-use App\Http\Models\Kasus;
+use App\Http\Models\Virus;
 use Illuminate\Support\Carbon;
 
 class HalamanController extends Controller
@@ -21,20 +21,20 @@ class HalamanController extends Controller
     {
         // Count Up
         $positif = DB::table('rws')
-            ->select('kasuses.positif',
-            'kasuses.sembuh', 'kasuses.meninggal')
-            ->join('kasuses','rws.id','=','kasuses.id_rw')
-            ->sum('kasuses.positif'); 
+            ->select('viruses.positif',
+            'viruses.sembuh', 'viruses.meninggal')
+            ->join('viruses','rws.id','=','viruses.id_rw')
+            ->sum('viruses.positif'); 
         $sembuh = DB::table('rws')
-            ->select('kasuses.positif',
-            'kasuses.sembuh','kasuses.meninggal')
-            ->join('kasuses','rws.id','=','kasuses.id_rw')
-            ->sum('kasuses.sembuh');
+            ->select('viruses.positif',
+            'viruses.sembuh','viruses.meninggal')
+            ->join('viruses','rws.id','=','viruses.id_rw')
+            ->sum('viruses.sembuh');
         $meninggal = DB::table('rws')
-            ->select('kasuses.positif',
-            'kasuses.sembuh','kasuses.meninggal')
-            ->join('kasuses','rws.id','=','kasuses.id_rw')
-            ->sum('kasuses.meninggal');
+            ->select('viruses.positif',
+            'viruses.sembuh','viruses.meninggal')
+            ->join('viruses','rws.id','=','viruses.id_rw')
+            ->sum('viruses.meninggal');
         // $posdu = file_get_contents('https://api.kawalcorona.com/positif');
         // $mendu = file_get_contents('https://api.kawalcorona.com/meninggal');
         // $semdu = file_get_contents('https://api.kawalcorona.com/sembuh');
@@ -51,11 +51,11 @@ class HalamanController extends Controller
                   ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
                   ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
                   ->join('rws','rws.id_kelurahan','=','kelurahans.id')
-                  ->join('kasuses','kasuses.id_rw','=','rws.id')
+                  ->join('viruses','viruses.id_rw','=','rws.id')
                   ->select('nama_provinsi',
-                          DB::raw('SUM(kasuses.positif) as Positif'),
-                          DB::raw('SUM(kasuses.sembuh) as Sembuh'),
-                          DB::raw('SUM(kasuses.meninggal) as Meninggal'))
+                          DB::raw('SUM(viruses.positif) as Positif'),
+                          DB::raw('SUM(viruses.sembuh) as Sembuh'),
+                          DB::raw('SUM(viruses.meninggal) as Meninggal'))
                   ->groupBy('nama_provinsi')->orderBy('nama_provinsi','ASC')
                   ->get();
 

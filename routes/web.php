@@ -6,9 +6,7 @@ use App\Http\Controllers\KotaController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\RwController;
-use App\Http\Controllers\TrackingController;
-use App\Http\Controllers\NegaraController;
-use App\Http\Controllers\KasusController;
+use App\Http\Controllers\VirusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,13 +33,12 @@ Route::group(['prefix', 'middleware'=>['auth']], function (){
 	Route::resource('/kota', KotaController::class);
 	Route::resource('/kelurahan', KelurahanController::class);
 	Route::resource('/kecamatan', KecamatanController::class);
-    Route::resource('rw',RwController::class);
-    Route::resource('virus',KasusController::class);    
+    Route::resource('/rw',RwController::class);
+    Route::resource('/virus',VirusController::class);    
 });
-Route::get('/virus', [App\Http\Controllers\KasusController::class, 'index'])->name('virus');
+Route::get('/virus', [App\Http\Controllers\VirusController::class, 'index'])->name('virus');
 
 
 // Route::get('test', function() {
 //     return view('frontend.index');
 // });
-

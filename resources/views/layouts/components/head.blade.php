@@ -4,7 +4,7 @@
 
 <link rel="icon" type="image/png" href="{{ asset('assets/dist/img/AdminLTELogo.png') }}">
 <title>
-    IFS | @yield('judul')
+    IFS COVID | @yield('judul')
 </title>
 <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
 <!-- Font Awesome Icons -->

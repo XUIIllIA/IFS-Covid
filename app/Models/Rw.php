@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rw extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['nama_rw','id_kelurahan'];
+    protected $table = "rws";
+    protected $fillable = ['no_rw','id_kelurahan'];
     public $timestamps = true;
 
     public function kelurahan()
@@ -17,8 +17,8 @@ class Rw extends Model
         return $this->belongsTo('App\Models\Kelurahan','id_kelurahan');
     }
 
-    public function kasus()
+    public function virus()
     {
-        return $this->hasMany('App/Models/Kasus','id_rw');
+        return $this->hasMany('App/Models/Virus','id_rw');
     }
 }

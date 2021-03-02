@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Data Covid | Daftar</title>
+    <title>IFS COVID | Daftar</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/relo/images/fav.jpg') }}">
     <link rel="stylesheet" href="{{ asset('assets/relo/css/bootstrap.min.css') }}">
@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-5 box-de">
                             <div class="small-logo">
-                                <i class="fab fa-asymmetrik"></i> Data Covid
+                                <i class=""></i>
                             </div>
                             <div class="ditk-inf sup-oi">
                                 <h2 class="w-100">Apakah anda sudah punya akun ?? </h2>

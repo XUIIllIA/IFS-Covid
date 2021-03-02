@@ -11,7 +11,7 @@
 
     <link rel="icon" type="image/png" href="{{ asset('assets/dist/img/AdminLTELogo.png') }}">
     <title>
-        IFS Covid
+        IFS COVID
     </title>
     <!--
     SOFTY PINKO
@@ -129,49 +129,49 @@
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
                             <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
-                            <strong>Get Ideas</strong>
-                            <span>Godard pabst prism fam cliche.</span>
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                        <a href="#" class="mini-box">
-                            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
-                            <strong>Sketch Up</strong>
-                            <span>Godard pabst prism fam cliche.</span>
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                        <a href="#" class="mini-box">
-                            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
-                            <strong>Discuss</strong>
-                            <span>Godard pabst prism fam cliche.</span>
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                        <a href="#" class="mini-box">
-                            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
-                            <strong>Revise</strong>
-                            <span>Godard pabst prism fam cliche.</span>
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                        <a href="#" class="mini-box">
-                            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
-                            <strong>Approve</strong>
-                            <span>Godard pabst prism fam cliche.</span>
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                        <a href="#" class="mini-box">
-                            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
-                            <strong>Launch</strong>
-                            <span>Godard pabst prism fam cliche.</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- ***** Mini Box End ***** -->
-            </div>
-        </div>
+    <strong>Get Ideas</strong>
+    <span>Godard pabst prism fam cliche.</span>
+    </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+        <a href="#" class="mini-box">
+            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
+            <strong>Sketch Up</strong>
+            <span>Godard pabst prism fam cliche.</span>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+        <a href="#" class="mini-box">
+            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
+            <strong>Discuss</strong>
+            <span>Godard pabst prism fam cliche.</span>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+        <a href="#" class="mini-box">
+            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
+            <strong>Revise</strong>
+            <span>Godard pabst prism fam cliche.</span>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+        <a href="#" class="mini-box">
+            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
+            <strong>Approve</strong>
+            <span>Godard pabst prism fam cliche.</span>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+        <a href="#" class="mini-box">
+            <i><img src="{{ asset('assets/frontend/images/work-process-item-01.png') }}" alt=""></i>
+            <strong>Launch</strong>
+            <span>Godard pabst prism fam cliche.</span>
+        </a>
+    </div>
+    </div>
+    <!-- ***** Mini Box End ***** -->
+    </div>
+    </div>
     </section>
     <!-- ***** Home Parallax End ***** -->
 
@@ -579,7 +579,7 @@
     <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
     @yield('js')
     <script>
-        $(function() {
+        $(function () {
             $("#example").DataTable();
             $('#example2').DataTable({
                 "paging": true,

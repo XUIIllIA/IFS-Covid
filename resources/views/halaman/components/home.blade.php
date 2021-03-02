@@ -109,27 +109,27 @@
                             </thead>
                             <tbody>
                                 @php
-                                    $no = 1;
+                                $no = 1;
                                 @endphp
 
                                 @foreach ($tampil as $tmp)
-                                    <tr>
-                                        <th scope="row">
-                                            <center>{{ $no++ }}</center>
-                                        </th>
-                                        <td>
-                                            <center>{{ $tmp->nama_provinsi }}</center>
-                                        </td>
-                                        <td>
-                                            <center>{{ number_format($tmp->Positif) }}</center>
-                                        </td>
-                                        <td>
-                                            <center>{{ number_format($tmp->Sembuh) }}</center>
-                                        </td>
-                                        <td>
-                                            <center>{{ number_format($tmp->Meninggal) }}</center>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <center>{{ $no++ }}</center>
+                                    </th>
+                                    <td>
+                                        <center>{{ $tmp->nama_provinsi }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ number_format($tmp->Positif) }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ number_format($tmp->Sembuh) }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ number_format($tmp->Meninggal) }}</center>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -197,21 +197,21 @@
 <!-- ======== End Table Section Global ======= -->
 
 @section('js')
-    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
 
-    <script>
-        $(function() {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-            });
+<script>
+    $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
         });
+    });
 
-    </script>
+</script>
 @endsection

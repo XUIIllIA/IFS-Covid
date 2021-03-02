@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kasus extends Model
+class Virus extends Model
 {
     use HasFactory;
-
+    protected $table = "viruses";
     protected $fillable = ['id_rw','reaktif','positif','sembuh','meninggal','tanggal'];
     public $timestamps = true;
 

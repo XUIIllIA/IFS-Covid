@@ -9,7 +9,7 @@ use App\Models\Kota;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\Rw;
-use App\Models\Tarcking;
+use App\Models\Virus;
 use DB;
 use Illuminate\Support\Facades\Http;
 
@@ -19,14 +19,14 @@ class ApiController extends Controller
     {
         $provinsi = DB::table('provinsis')
             ->select('provinsis.nama_provinsi','provinsis.kode_provinsi',
-            DB::raw('SUM(trackings.positif) as Positif'),
-            DB::raw('SUM(trackings.sembuh) as Sembuh'),
-            DB::raw('SUM(trackings.meninggal) as Meninggal'))
+            DB::raw('SUM(viruses.positif) as Positif'),
+            DB::raw('SUM(viruses.sembuh) as Sembuh'),
+            DB::raw('SUM(viruses.meninggal) as Meninggal'))
                 ->join('kotas','provinsis.id','=','kotas.id_provinsi')
                 ->join('kecamatans','kotas.id','=','kecamatans.id_kota')
                 ->join('kelurahans','kecamatans.id','=','kelurahans.id_kecamatan')
                 ->join('rws','kelurahans.id','=','rws.id_kelurahan')
-                ->join('trackings','rws.id','=','trackings.id_rw')
+                ->join('viruses','rws.id','=','viruses.id_rw')
             ->groupBy('provinsis.id')->get();
 
         $positif = DB::table('provinsis')
@@ -34,29 +34,29 @@ class ApiController extends Controller
             ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
             ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
             ->join('rws','rws.id_kelurahan','=','kelurahans.id')
-            ->join('trackings','trackings.id_rw','=','rws.id')
-            ->select('trackings.positif')
-            ->sum('trackings.positif');
+            ->join('viruses','viruses.id_rw','=','rws.id')
+            ->select('viruses.positif')
+            ->sum('viruses.positif');
 
         $sembuh = DB::table('provinsis')
             ->join('kotas','kotas.id_provinsi','=','provinsis.id')
             ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
             ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
             ->join('rws','rws.id_kelurahan','=','kelurahans.id')
-            ->join('trackings','trackings.id_rw','=','rws.id')
-            ->select('trackings.positif',
-                'trackings.sembuh','trackings.meninggal')
-            ->sum('trackings.sembuh');
+            ->join('viruses','viruses.id_rw','=','rws.id')
+            ->select('viruses.positif',
+                'viruses.sembuh','viruses.meninggal')
+            ->sum('viruses.sembuh');
 
         $meninggal = DB::table('provinsis')
             ->join('kotas','kotas.id_provinsi','=','provinsis.id')
             ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
             ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
             ->join('rws','rws.id_kelurahan','=','kelurahans.id')
-            ->join('trackings','trackings.id_rw','=','rws.id')
-            ->select('trackings.positif',
-                'trackings.sembuh','trackings.meninggal')
-            ->sum('trackings.meninggal');
+            ->join('viruses','viruses.id_rw','=','rws.id')
+            ->select('viruses.positif',
+                'viruses.sembuh','viruses.meninggal')
+            ->sum('viruses.meninggal');
        
             return response([
                 'success' => true,
@@ -72,7 +72,7 @@ class ApiController extends Controller
 
     public function Rw()
     {
-        $rw = DB::table('trackings')
+        $rw = DB::table('viruses')
                 ->select([
                     DB::raw('SUM(positif) as Positif'),
                     DB::raw('SUM(sembuh) as Sembuh'),
@@ -81,20 +81,20 @@ class ApiController extends Controller
                 ->groupBy('tanggal')->get();
 
         $positif = DB::table('rws')
-                ->select('trackings.positif',
-                'trackings.sembuh','trackings.meninggal')
-                ->join('trackings','rws.id','=','trackings.id_rw')
-                ->sum('trackings.positif');
+                ->select('viruses.positif',
+                'viruses.sembuh','viruses.meninggal')
+                ->join('viruses','rws.id','=','viruses.id_rw')
+                ->sum('viruses.positif');
         $sembuh = DB::table('rws')
-                ->select('trackings.positif',
-                'trackings.sembuh','trackings.meninggal')
-                ->join('trackings','rws.id','=','trackings.id_rw')
-                ->sum('trackings.sembuh');
+                ->select('viruses.positif',
+                'viruses.sembuh','viruses.meninggal')
+                ->join('viruses','rws.id','=','viruses.id_rw')
+                ->sum('viruses.sembuh');
         $meninggal = DB::table('rws')
-                ->select('trackings.positif',
-                'trackings.sembuh','trackings.meninggal')
-                ->join('trackings','rws.id','=','trackings.id_rw')
-                ->sum('trackings.meninggal');
+                ->select('viruses.positif',
+                'viruses.sembuh','viruses.meninggal')
+                ->join('viruses','rws.id','=','viruses.id_rw')
+                ->sum('viruses.meninggal');
 
              return response([
                 'success' => true,
@@ -112,14 +112,14 @@ class ApiController extends Controller
     {
         $kota = DB::table('kotas')
         ->select('provinsis.nama_provinsi','kotas.kode_kota','kotas.nama_kota',
-            DB::raw('SUM(trackings.positif) as Positif'),
-            DB::raw('SUM(trackings.sembuh) as Sembuh'),
-            DB::raw('SUM(trackings.meninggal) as Meninggal'))
+            DB::raw('SUM(viruses.positif) as Positif'),
+            DB::raw('SUM(viruses.sembuh) as Sembuh'),
+            DB::raw('SUM(viruses.meninggal) as Meninggal'))
                 ->join('provinsis','provinsis.id','=','kotas.id_provinsi')
                 ->join('kecamatans','kotas.id','=','kecamatans.id_kota')
                 ->join('kelurahans','kecamatans.id','=','kelurahans.id_kecamatan')
                 ->join('rws','kelurahans.id','=','rws.id_kelurahan')
-                ->join('trackings','rws.id','=','trackings.id_rw')
+                ->join('viruses','rws.id','=','viruses.id_rw')
             ->groupBy('kotas.id')->get();
 
         return response([
@@ -133,13 +133,13 @@ class ApiController extends Controller
     {
         $kecamatan = DB::table('kecamatans')
         ->select('kotas.nama_kota','kecamatans.kode_kecamatan','kecamatans.nama_kecamatan',
-            DB::raw('SUM(trackings.positif) as Positif'),
-            DB::raw('SUM(trackings.sembuh) as Sembuh'),
-            DB::raw('SUM(trackings.meninggal) as Meninggal'))
+            DB::raw('SUM(viruses.positif) as Positif'),
+            DB::raw('SUM(viruses.sembuh) as Sembuh'),
+            DB::raw('SUM(viruses.meninggal) as Meninggal'))
                 ->join('kotas','kotas.id','=','kecamatans.id_kota')
                 ->join('kelurahans','kecamatans.id','=','kelurahans.id_kecamatan')
                 ->join('rws','kelurahans.id','=','rws.id_kelurahan')
-                ->join('trackings','rws.id','=','trackings.id_rw')
+                ->join('viruses','rws.id','=','viruses.id_rw')
         ->groupBy('kotas.id')->get();
 
         return response([
@@ -153,12 +153,12 @@ class ApiController extends Controller
     {
         $kelurahan = DB::table('kelurahans')
         ->select('kecamatans.nama_kecamatan','kelurahans.nama_kelurahan',
-            DB::raw('SUM(trackings.positif) as Positif'),
-            DB::raw('SUM(trackings.sembuh) as Sembuh'),
-            DB::raw('SUM(trackings.meninggal) as Meninggal'))
+            DB::raw('SUM(viruses.positif) as Positif'),
+            DB::raw('SUM(viruses.sembuh) as Sembuh'),
+            DB::raw('SUM(viruses.meninggal) as Meninggal'))
                 ->join('kecamatans','kecamatans.id','=','kelurahans.id_kecamatan')
                 ->join('rws','kelurahans.id','=','rws.id_kelurahan')
-                ->join('trackings','rws.id','=','trackings.id_rw')
+                ->join('viruses','rws.id','=','viruses.id_rw')
         ->groupBy('kelurahans.id')->get();
 
         return response([
@@ -171,20 +171,20 @@ class ApiController extends Controller
     public function all()
     {
         $positif = DB::table('rws')
-              ->select('trackings.sembuh',
-              'trackings.positif','trackings.meninggal')
-              ->join('trackings','rws.id','=','trackings.id_rw')
-              ->sum('trackings.positif');
+              ->select('viruses.sembuh',
+              'viruses.positif','viruses.meninggal')
+              ->join('viruses','rws.id','=','viruses.id_rw')
+              ->sum('viruses.positif');
         $sembuh = DB::table('rws')
-              ->select('trackings.sembuh',
-              'trackings.positif','trackings.meninggal')
-              ->join('trackings','rws.id','=','trackings.id_rw')
-              ->sum('trackings.sembuh');
+              ->select('viruses.sembuh',
+              'viruses.positif','viruses.meninggal')
+              ->join('viruses','rws.id','=','viruses.id_rw')
+              ->sum('viruses.sembuh');
         $meninggal = DB::table('rws')
-              ->select('trackings.sembuh',
-              'trackings.positif','trackings.meninggal')
-              ->join('trackings','rws.id','=','trackings.id_rw')
-              ->sum('trackings.meninggal');
+              ->select('viruses.sembuh',
+              'viruses.positif','viruses.meninggal')
+              ->join('viruses','rws.id','=','viruses.id_rw')
+              ->sum('viruses.meninggal');
 
             return response([
                 'success' => true,
@@ -199,10 +199,10 @@ class ApiController extends Controller
     public function positif()
     {
         $positif = DB::table('rws')
-            ->select('trackings.sembuh',
-            'trackings.positif','trackings.meninggal')
-            ->join('trackings','rws.id','=','trackings.id_rw')
-            ->sum('trackings.positif');
+            ->select('viruses.sembuh',
+            'viruses.positif','viruses.meninggal')
+            ->join('viruses','rws.id','=','viruses.id_rw')
+            ->sum('viruses.positif');
 
         return response([
             'success' => true,
@@ -215,10 +215,10 @@ class ApiController extends Controller
     public function sembuh()
     {
         $sembuh = DB::table('rws')
-              ->select('trackings.sembuh',
-              'trackings.positif','trackings.meninggal')
-              ->join('trackings','rws.id','=','trackings.id_rw')
-              ->sum('trackings.sembuh');
+              ->select('viruses.sembuh',
+              'viruses.positif','viruses.meninggal')
+              ->join('viruses','rws.id','=','viruses.id_rw')
+              ->sum('viruses.sembuh');
 
         return response([
             'success' => true,
@@ -231,10 +231,10 @@ class ApiController extends Controller
     public function meninggal()
     {
         $meninggal = DB::table('rws')
-        ->select('trackings.sembuh',
-        'trackings.positif','trackings.meninggal')
-        ->join('trackings','rws.id','=','trackings.id_rw')
-        ->sum('trackings.meninggal');
+        ->select('viruses.sembuh',
+        'viruses.positif','viruses.meninggal')
+        ->join('viruses','rws.id','=','viruses.id_rw')
+        ->sum('viruses.meninggal');
 
         return response([
             'success' => true,

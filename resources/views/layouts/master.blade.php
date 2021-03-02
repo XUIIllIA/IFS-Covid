@@ -76,6 +76,24 @@
     <!-- PAGE SCRIPTS -->
     <script src="{{ asset('assets/dist/js/pages/dashboard2.js') }}"></script>
     <script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
+    
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+            });
+        });
+
+    </script>
     @livewireScripts
     @yield('js')
     @stack('script')

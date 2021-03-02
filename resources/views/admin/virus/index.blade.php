@@ -1,9 +1,8 @@
 @extends('layouts.master')
-@section('judul', 'RW')
-@section('rw', 'active')
+@section('virus', 'active')
+@section('judul', 'Virus')
 @section('css')
 @endsection
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -19,24 +18,32 @@
                 {{ session('message1') }}
             </div>
             @endif
-
             <div class="card">
-                <div class="card-header">Data Rw
-                    <a href="{{ route('rw.create') }}" class="float-right btn btn-success">Tambah Data</a>
+                <div class="card-header">Data Virus
+                    <a href="{{ route('virus.create') }}" class="float-right btn btn-success">Tambah Data</a>
                 </div>
-
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr class="bg-blue">
+                                <th scope="col">No</th>
                                 <th scope="col">
-                                    <center>No</center>
+                                    <center>Lokasi</center>
                                 </th>
                                 <th scope="col">
-                                    <center>Kelurahan</center>
+                                    <center>RW</center>
                                 </th>
                                 <th scope="col">
-                                    <center>Nama Rw</center>
+                                    <center>Positif</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Sembuh</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Meninggal</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Waktu</center>
                                 </th>
                                 <th scope="col">
                                     <center>Action</center>
@@ -44,29 +51,46 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php $no= 1; @endphp
-                            @foreach ($rw as $data)
+                            @php $no=1; @endphp
+                            @foreach ($virus as $data)
                             <tr>
-                                <th scoppe="row">
+                                <th scope="row">
                                     <center>{{ $no++ }}</center>
                                 </th>
                                 <td>
-                                    <center>{{ $data->kelurahan->nama_kelurahan }}</center>
+                                    <center>
+                                        Provinsi :
+                                        {{ $data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi }}
+                                        Kota : {{ $data->rw->kelurahan->kecamatan->kota->nama_kota }}<br>
+                                        Kecamatan : {{ $data->rw->kelurahan->kecamatan->nama_kecamatan }}<br>
+                                        Kelurahan : {{ $data->rw->kelurahan->nama_kelurahan }}<br>
+                                    </center>
                                 </td>
                                 <td>
-                                    <center>{{ $data->no_rw }}</center>
+                                    <center>{{ $data->rw->no_rw }}</center>
                                 </td>
                                 <td>
-                                    <form action="{{ route('rw.destroy', $data->id) }}" method="post">
+                                    <center>{{ $data->positif }}</center>
+                                </td>
+                                <td>
+                                    <center>{{ $data->sembuh }}</center>
+                                </td>
+                                <td>
+                                    <center>{{ $data->meninggal }}</center>
+                                </td>
+                                <td>
+                                    <center>{{ $data->created_at }}</center>
+                                </td>
+                                <td>
+                                    <form action="{{ route('virus.destroy', $data->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <center>
-                                            <a href="{{ route('rw.edit', $data->id) }}"
+                                            <a href="{{ route('virus.edit', $data->id) }}"
                                                 class="btn btn-primary btn-sm"><i class="fa fa-edit"></a></i>
                                             <button type="submit" class="btn btn-danger btn-sm"
                                                 onclick="return confirm('Yakin Hapus?')"><i class="fa fa-trash-alt">
                                     </form>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -76,6 +100,4 @@
         </div>
     </div>
 </div>
-</div>
 @endsection
-
