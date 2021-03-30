@@ -97,7 +97,7 @@ class KecamatanController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|max:10|min:3',
+            'nama' => 'required',
             'id_kota' => 'required',
           ], [
             'id_kota.required' => 'Kota harus di pilih ',

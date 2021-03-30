@@ -28,7 +28,7 @@
                                 <label for="">Rw @error('nama')
                                     | <i style="color: red"> {{ $message }} </i>
                                     @enderror</label>
-                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{@old('nama',$rw->no_rw)}}">
+                                <input type="number" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{@old('nama',$rw->no_rw)}}">
                             </div>
                         </div>
 

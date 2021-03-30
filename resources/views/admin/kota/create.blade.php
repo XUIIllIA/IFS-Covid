@@ -49,3 +49,14 @@
 </div>
 </div>
 @endsection
+{{-- @section('js')
+
+<script type="text/javascript">
+    $('#id_provinsi').select2({
+        placeholder: "Pilih Kota",
+    });
+
+</script>
+
+
+@endsection --}}

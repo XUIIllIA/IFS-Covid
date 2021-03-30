@@ -97,14 +97,11 @@ class KotaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|max:30|min:3|alpha',
+            'nama' => 'required',
             'id_provinsi' => 'required',
           ], [
             'id_provinsi.required' => 'Provinsi harus di pilih ',
             'nama.required' => 'Nama kota harus di isi ',
-            'nama.min' => 'Nama kota minimal 3 karakter  ',
-            'nama.max' => 'Nama kota tidak boleh lebih dari 30 karakter ',
-            'nama.alpha' => 'Nama kota harus huruf bukan angka ',
           ]);
           
         $kota = Kota::findOrFail($id);

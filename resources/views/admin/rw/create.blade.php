@@ -29,7 +29,7 @@
                             <label for="">Rw @error('no_rw')
                                 | <i style="color: red"> {{ $message }} </i>
                                 @enderror</label>
-                            <input type="text" placeholder="Masukan No Rw" class="form-control @error('no_rw') is-invalid @enderror" name="no_rw"
+                            <input type="number" placeholder="Masukan No Rw" class="form-control @error('no_rw') is-invalid @enderror" name="no_rw"
                                 value="{{@old('no_rw')}}">
                         </div>
                         <div class="form-group">
